@@ -23,6 +23,20 @@ app.post('/api/user', function(req, res){
 	});
 });
 
+app.get('/api/users', function(req, res){
+	User.find(function(err, docs){
+		if(!err){
+			if(docs.length === 0){
+				res.status(404).send("No documents found")
+			} else {
+				res.status(200).json(docs);
+			}
+		} else {
+			res.status
+		}
+	})
+})
+
 app.listen(port, function(){
 	console.log("taking kurr of biznass on " + port);
 });
